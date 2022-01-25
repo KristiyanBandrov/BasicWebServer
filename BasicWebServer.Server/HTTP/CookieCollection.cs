@@ -23,8 +23,6 @@ namespace BasicWebServer.Server.HTTP
         public bool Contains(string name)
             => this.cookies.ContainsKey(name);
 
-        //test commit/push
-
         public IEnumerator<Cookie> GetEnumerator()
         {
             return this.cookies.Values.GetEnumerator();
