@@ -23,58 +23,11 @@ namespace BasicWebServer.Demo
             .MapGet<HomeController>("/Cookies", c => c.Cookies())
             .MapGet<HomeController>("/Session", c => c.Session())
             .MapGet<UsersController>("/Login", c => c.Login())
-            .MapPost<UsersController>("/Login", c => c.LogInUser()))
+            .MapPost<UsersController>("/Login", c => c.LogInUser())
+            .MapGet<UsersController>("/Logout", c => c.Logout())
+            .MapGet<UsersController>("/UserProfile", c=> c.GetUserData()))
             .Start();
 
-        private static void LoginAction(Request request, Response response)
-        {
-            request.Session.Clear();
-
-            var bodyText = "";
-
-            //var usernameMathces = request.Form["Username"] == StartUp.Username;
-            //var passwordMatches = request.Form["Password"] == StartUp.Password;
-
-            //if (usernameMathces && passwordMatches)
-            //{
-            //request.Session[Session.SessionUserKey] = "MyUserId";
-            //response.Cookies.Add(Session.SessionCookieName,
-            //request.Session.Id);
-
-            //bodyText = "<h3>Logged successfully!</h3>";
-            //}
-            //else
-            //{
-            //bodyText = StartUp.LoginForm;
-            //}
-
-            response.Body = "";
-            response.Body += bodyText;
-        }
-
-        private static void LogoutAction(Request request, Response response)
-        {
-            request.Session.Clear();
-
-            response.Body = "";
-            response.Body += "<h3>Logged out successfully!</h3>";
-        }
-
-        //private static void GetUserDataAction(Request request, Response response)
-        //{
-        //if (request.Session.ContainsKey(Session.SessionUserKey))
-        //{
-        //response.Body = "";
-        //response.Body += $"<h3>Currently logged-in user " +
-        //$"is with username '{Username}'</h3>";
-        //}
-        //else
-        //{
-        //response.Body = "";
-        //response.Body += "<h3>You should first log in " +
-        //"- <a href ='/Login'>Login</a></h3>>";
-        //}
-        //}
     }
 
 }
