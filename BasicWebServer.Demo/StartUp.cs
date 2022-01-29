@@ -21,11 +21,9 @@ namespace BasicWebServer.Demo
             .MapGet<HomeController>("/Content", c => c.Content())
             .MapPost<HomeController>("/Content", c => c.DownloadContent())
             .MapGet<HomeController>("/Cookies", c => c.Cookies())
-            .MapGet<HomeController>("/Session", c => c.Session()))
-            //.MapGet("/Login", new HtmlResponse(StartUp.LoginForm))
-            //.MapPost("/Login", new HtmlResponse("", StartUp.LoginAction))
-            //.MapGet("/Logout", new HtmlResponse("", StartUp.LogoutAction))
-            //.MapGet("/UserProfile", new HtmlResponse("", StartUp.GetUserDataAction)))
+            .MapGet<HomeController>("/Session", c => c.Session())
+            .MapGet<UsersController>("/Login", c => c.Login())
+            .MapPost<UsersController>("/Login", c => c.LogInUser()))
             .Start();
 
         private static void LoginAction(Request request, Response response)
