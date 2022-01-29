@@ -18,6 +18,7 @@ namespace BasicWebServer.Server.Controllers
             => routingTable.MapGet(path, request => controllerFunction(
                 CreateController<TController>(request)));
 
-
+        private static TController CreateController<TController>(Request request)
+            => (TController)Activator.CreateInstance(typeof(TController), new[] {request});
     }
 }
