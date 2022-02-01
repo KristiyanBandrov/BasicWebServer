@@ -15,7 +15,7 @@ namespace BasicWebServer.Server
         private readonly RoutingTable routingTable;
 
         public HttpServer(
-            string ipAddress, 
+            string ipAddress,
             int port,
             Action<IRoutingTable> routingTableConfiguration)
         {
@@ -35,7 +35,7 @@ namespace BasicWebServer.Server
 
         public HttpServer(Action<IRoutingTable> routingTable)
             : this(8080, routingTable)
-        { 
+        {
         }
 
         public async Task Start()
