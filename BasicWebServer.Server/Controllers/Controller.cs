@@ -1,11 +1,6 @@
 ﻿using BasicWebServer.Server.HTTP;
 using BasicWebServer.Server.Responses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BasicWebServer.Server.Controllers
 {
@@ -39,6 +34,9 @@ namespace BasicWebServer.Server.Controllers
         protected Response File(string fileName) => new FileResponse(fileName);
         protected Response View([CallerMemberName] string viewName = "")
             => new ViewResponse(viewName, this.GetControllerName());
+
+        protected Response View(object model, [CallerMemberName] string viewName = "")
+            => new ViewResponse(viewName, this.GetControllerName(), model);
 
         private string GetControllerName()
          => this.GetType().Name
