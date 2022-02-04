@@ -6,7 +6,7 @@ namespace BasicWebServer.Server.Controllers
 {
     public abstract class Controller
     {
-        protected Request Request { get; private init; }
+        protected Request Request { get; set; }
         protected Controller(Request request)
         {
             this.Request = request;
